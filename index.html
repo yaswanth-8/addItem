@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Angular App
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main" ng-app="myList" ng-controller="myListController">    <!-- binding the module and the controller -->   
+            <h1>Items List</h1>
+            <div class="additem">
+                <input ng-model="newItem" placeholder="Add item" class="addtext">     <!-- binding this newItem with $scope.newItem -->
+                <button ng-click="pushItem()">Add</button>     <!-- binding this button with push item function in js -->
+            </div>
+            <ul>
+                <li ng-repeat="i in items">     <!-- to bind we should use loop because n items can be added (ng-repeat) -->
+                    {{i}}        <!-- acts like for each -->
+                    <span ng-click="deleteItem($index)">     <!-- binding this deleteItem function -->
+                        x
+                    </span>  <!-- $index is an angular variable to get the index -->
+                </li>
+            </ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
